@@ -25,7 +25,11 @@ if __name__ == "__main__":
     parser.add_argument("--epochs", default=300, type=int)
     args = parser.parse_args()
 
-    ds = tfds.load("imagenet_resized/32x32", as_supervised=True)
+#从官网，下载数据集
+    # ds = tfds.load("imagenet_resized/32x32", as_supervised=True)
+
+    ds = tfds.load("cifar10",as_supervised=True)
+#数据预处理阶段
     ds_train = (
         ds["train"]
         .cache()
